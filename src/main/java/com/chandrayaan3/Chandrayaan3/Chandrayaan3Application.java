@@ -3,6 +3,8 @@ package com.chandrayaan3.Chandrayaan3;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.util.Arrays;
+
 @SpringBootApplication
 public class Chandrayaan3Application {
 
@@ -70,6 +72,14 @@ public class Chandrayaan3Application {
 				}
 			}
 		}
+		System.out.println("Final Co-ordinates of the spacecraft:- "+Arrays.toString(startingPosition));
+		if(initialDirection_galactic != '\0'){
+			System.out.println("Final Direction:- "+initialDirection_galactic);
+		}
+		else{
+			System.out.println("Final Direction:- "+initialDirection_compass);
+		}
+
         return startingPosition;
     }
 
