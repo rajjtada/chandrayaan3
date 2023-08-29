@@ -183,25 +183,41 @@ class Chandrayaan3ApplicationTests {
 	public void checks_incubyte_example_commands_and_some_random_commands(){
 		chandrayaan3Application = new Chandrayaan3Application();
 
+		//test case 1
 		starting_position = new int[]{0,0,0};
 		commands = new char[]{'f', 'r', 'u', 'b', 'l'};
 		initial_direction = 'N';
 		assertThat(chandrayaan3Application.final_position(starting_position,commands,initial_direction)).isEqualTo(new int[]{0,1,-1});
 
+		//test case 2
 		starting_position = new int[]{0,0,0};
 		commands = new char[]{'f','f','f','f'};
 		initial_direction = 'N';
 		assertThat(chandrayaan3Application.final_position(starting_position,commands,initial_direction)).isEqualTo(new int[]{0,4,0});
 
+		//test case 3
 		starting_position = new int[]{0,0,0};
 		commands = new char[]{'f', 'r', 'f', 'l', 'b', 'r','u', 'b', 'l', 'u', 'd'};
 		initial_direction = 'N';
 		assertThat(chandrayaan3Application.final_position(starting_position,commands,initial_direction)).isEqualTo(new int[]{1,0,-1});
 
+		//test case 4
 		starting_position = new int[]{0,0,0};
 		commands = new char[]{'f', 'r', 'f', 'l', 'b', 'r','u', 'b', 'l', 'u', 'd'};
 		initial_direction = 'S';
 		assertThat(chandrayaan3Application.final_position(starting_position,commands,initial_direction)).isEqualTo(new int[]{-1,0,-1});
+
+		//test case 5
+		starting_position = new int[]{3,-2,1};
+		commands = new char[]{'b', 'l', 'u', 'r', 'd', 'f'};
+		initial_direction = 'E';
+		assertThat(chandrayaan3Application.final_position(starting_position,commands,initial_direction)).isEqualTo(new int[]{2,-2,0});
+
+		//test case 6
+		starting_position = new int[]{1, -1, 0};
+		commands = new char[]{'f', 'r', 'f', 'r', 'f', 'l', 'f', 'l'};
+		initial_direction = 'S';
+		assertThat(chandrayaan3Application.final_position(starting_position,commands,initial_direction)).isEqualTo(new int[]{-1,-1,0});
 	}
 
 }
