@@ -60,76 +60,14 @@ public class Chandrayaan3Application {
 						initialDirection_compass = rotateRight(initialDirection_compass);
 					}
 				}
-
-//				if(initialDirection == 'N'){
-//					if(c == 'f'){
-//						startingPosition[1] += 1;
-//					}
-//					else if (c == 'b') {
-//						startingPosition[1] -= 1;
-//					}
-//					else if(c == 'l'){
-//						initialDirection = 'W';
-//					}
-//				}
-//				else if(initialDirection == 'S'){
-//					if(c == 'f'){
-//						startingPosition[1] -= 1;
-//					}
-//					else if (c == 'b') {
-//						startingPosition[1] += 1;
-//					}
-//					else if(c == 'l'){
-//						initialDirection = 'E';
-//					}
-//				}
-//				else if(initialDirection == 'E'){
-//					if(c == 'f'){
-//						startingPosition[0] += 1;
-//					}
-//					else if (c == 'b') {
-//						startingPosition[0] -= 1;
-//					}
-//					else if(c == 'l'){
-//						initialDirection = 'N';
-//					}
-//				}
-//				else if(initialDirection == 'W'){
-//					if(c == 'f'){
-//						startingPosition[0] -= 1;
-//					}
-//					else if (c == 'b') {
-//						startingPosition[0] += 1;
-//					}
-//					else if(c == 'l'){
-//						initialDirection = 'S';
-//					}
-//				}
-//				else if(initialDirection == 'U'){
-//					if(c == 'f'){
-//						startingPosition[2] += 1;
-//					}
-//					else if (c == 'b') {
-//						startingPosition[2] -= 1;
-//					}
-//					else if(c == 'l'){
-//						initialDirection = 'W';
-//					}
-//				}
-//				else if(initialDirection == 'D'){
-//					if(c == 'f'){
-//						startingPosition[2] -= 1;
-//					}
-//					else if (c == 'b') {
-//						startingPosition[2] += 1;
-//					}
-//					else if(c == 'l'){
-//						initialDirection = 'W';
-//					}
-//				}
+				else if (c == 'u') {
+					initialDirection_galactic = 'U';
+				}
+				else if (c == 'd') {
+					initialDirection_galactic = 'D';
+				}
 			}
 		}
-
         return startingPosition;
     }
 

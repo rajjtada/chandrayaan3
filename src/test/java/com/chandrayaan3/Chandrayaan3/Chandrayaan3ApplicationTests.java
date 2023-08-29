@@ -49,13 +49,18 @@ class Chandrayaan3ApplicationTests {
 
 		/* initial_direction cannot be 'U' and 'D', as we don't if it rotates left we don't know in which direction to rotate,
 		so it returns the starting position as is */
+
+		/* So, here I checked the forward command in 'U' and 'D', using below approach first forward in 'N' direction and changed
+		direction to 'U' or 'D' and then forward */
 		starting_position = new int[]{0,0,0};
-		initial_direction = 'U';
-		assertThat(chandrayaan3Application.final_position(starting_position,commands,initial_direction)).isEqualTo(new int[]{0,0,0});
+		commands = new char[]{'f','u','f'};
+		initial_direction = 'N';
+		assertThat(chandrayaan3Application.final_position(starting_position,commands,initial_direction)).isEqualTo(new int[]{0,1,1});
 
 		starting_position = new int[]{0,0,0};
-		initial_direction = 'D';
-		assertThat(chandrayaan3Application.final_position(starting_position,commands,initial_direction)).isEqualTo(new int[]{0,0,0});
+		commands = new char[]{'f','d','f'};
+		initial_direction = 'N';
+		assertThat(chandrayaan3Application.final_position(starting_position,commands,initial_direction)).isEqualTo(new int[]{0,1,-1});
 
 	}
 
@@ -83,12 +88,18 @@ class Chandrayaan3ApplicationTests {
 
 		/* initial_direction cannot be 'U' and 'D', as we don't if it rotates left we don't know in which direction to rotate,
 		so it returns the starting position as is */
-		starting_position = new int[]{0,0,0};
-		initial_direction = 'U';
-		assertThat(chandrayaan3Application.final_position(starting_position,commands,initial_direction)).isEqualTo(new int[]{0,0,0});
 
-		initial_direction = 'D';
-		assertThat(chandrayaan3Application.final_position(starting_position,commands,initial_direction)).isEqualTo(new int[]{0,0,0});
+		/* So, here I checked the backward command in 'U' and 'D', using below approach first backward in 'N' direction and changed
+		direction to 'U' or 'D' and then backward */
+		starting_position = new int[]{0,0,0};
+		commands = new char[]{'b','u','b'};
+		initial_direction = 'N';
+		assertThat(chandrayaan3Application.final_position(starting_position,commands,initial_direction)).isEqualTo(new int[]{0,-1,-1});
+
+		starting_position = new int[]{0,0,0};
+		commands = new char[]{'b','d','b'};
+		initial_direction = 'N';
+		assertThat(chandrayaan3Application.final_position(starting_position,commands,initial_direction)).isEqualTo(new int[]{0,-1,1});
 
 	}
 
@@ -151,5 +162,6 @@ class Chandrayaan3ApplicationTests {
 		initial_direction = 'D';
 		assertThat(chandrayaan3Application.final_position(starting_position,commands,initial_direction)).isEqualTo(starting_position);
 	}
+
 
 }
