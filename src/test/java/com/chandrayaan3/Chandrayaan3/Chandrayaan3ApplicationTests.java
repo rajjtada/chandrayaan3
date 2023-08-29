@@ -26,7 +26,7 @@ class Chandrayaan3ApplicationTests {
 	}
 
 	@Test
-	public void checking_forward_command_in_all_directions(){
+	public void checks_forward_command_in_all_directions(){
 		chandrayaan3Application = new Chandrayaan3Application();
 
 		starting_position = new int[]{0,0,0};
@@ -65,7 +65,7 @@ class Chandrayaan3ApplicationTests {
 	}
 
 	@Test
-	public void checking_backward_command_in_all_directions(){
+	public void checks_backward_command_in_all_directions(){
 		chandrayaan3Application = new Chandrayaan3Application();
 
 		starting_position = new int[]{0,0,0};
@@ -104,10 +104,9 @@ class Chandrayaan3ApplicationTests {
 	}
 
 	@Test
-	public void check_spacecraft_rotates_left(){
+	public void checks_spacecraft_rotates_left_up_and_down(){
 		chandrayaan3Application = new Chandrayaan3Application();
 
-		//no change in position will occur in this as it only changes the direction
 		starting_position = new int[]{0,0,0};
 		commands = new char[]{'f','l','f'};
 		initial_direction = 'N';
@@ -143,10 +142,9 @@ class Chandrayaan3ApplicationTests {
 	}
 
 	@Test
-	public void check_spacecraft_rotates_right(){
+	public void checks_spacecraft_rotates_right_up_and_down(){
 		chandrayaan3Application = new Chandrayaan3Application();
 
-		//no change in position will occur in this as it only changes the direction
 		starting_position = new int[]{0,0,0};
 		commands = new char[]{'f','r','f'};
 		initial_direction = 'N';
@@ -181,5 +179,29 @@ class Chandrayaan3ApplicationTests {
 		assertThat(chandrayaan3Application.final_position(starting_position,commands,initial_direction)).isEqualTo(new int[] {1,1,-1});
 	}
 
+	@Test
+	public void checks_incubyte_example_commands_and_some_random_commands(){
+		chandrayaan3Application = new Chandrayaan3Application();
+
+		starting_position = new int[]{0,0,0};
+		commands = new char[]{'f', 'r', 'u', 'b', 'l'};
+		initial_direction = 'N';
+		assertThat(chandrayaan3Application.final_position(starting_position,commands,initial_direction)).isEqualTo(new int[]{0,1,-1});
+
+		starting_position = new int[]{0,0,0};
+		commands = new char[]{'f','f','f','f'};
+		initial_direction = 'N';
+		assertThat(chandrayaan3Application.final_position(starting_position,commands,initial_direction)).isEqualTo(new int[]{0,4,0});
+
+		starting_position = new int[]{0,0,0};
+		commands = new char[]{'f', 'r', 'f', 'l', 'b', 'r','u', 'b', 'l', 'u', 'd'};
+		initial_direction = 'N';
+		assertThat(chandrayaan3Application.final_position(starting_position,commands,initial_direction)).isEqualTo(new int[]{1,0,-1});
+
+		starting_position = new int[]{0,0,0};
+		commands = new char[]{'f', 'r', 'f', 'l', 'b', 'r','u', 'b', 'l', 'u', 'd'};
+		initial_direction = 'S';
+		assertThat(chandrayaan3Application.final_position(starting_position,commands,initial_direction)).isEqualTo(new int[]{-1,0,-1});
+	}
 
 }
