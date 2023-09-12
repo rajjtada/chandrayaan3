@@ -47,11 +47,6 @@ class Chandrayaan3ApplicationTests {
 		initial_direction = 'W';
 		assertThat(chandrayaan3Application.final_position(starting_position,commands,initial_direction)).isEqualTo(new int[]{-1,0,0});
 
-		/* initial_direction cannot be 'U' and 'D', as we don't if it rotates left we don't know in which direction to rotate,
-		so it returns the starting position as is */
-
-		/* So, here I checked the forward command in 'U' and 'D', using below approach first forward in 'N' direction and changed
-		direction to 'U' or 'D' and then forward */
 		starting_position = new int[]{0,0,0};
 		commands = new char[]{'f','u','f'};
 		initial_direction = 'N';
@@ -86,11 +81,6 @@ class Chandrayaan3ApplicationTests {
 		initial_direction = 'W';
 		assertThat(chandrayaan3Application.final_position(starting_position,commands,initial_direction)).isEqualTo(new int[]{1,0,0});
 
-		/* initial_direction cannot be 'U' and 'D', as we don't if it rotates left we don't know in which direction to rotate,
-		so it returns the starting position as is */
-
-		/* So, here I checked the backward command in 'U' and 'D', using below approach first backward in 'N' direction and changed
-		direction to 'U' or 'D' and then backward */
 		starting_position = new int[]{0,0,0};
 		commands = new char[]{'b','u','b'};
 		initial_direction = 'N';
@@ -127,9 +117,6 @@ class Chandrayaan3ApplicationTests {
 		initial_direction = 'W';
 		assertThat(chandrayaan3Application.final_position(starting_position,commands,initial_direction)).isEqualTo(new int[] {-1,-1,0});
 
-		/* here in 'U' and 'D' direction we encounter problem of remembering the 'N' 'S' 'E' 'W', because if we give command 'l' from 'U' it should
-		be 'S', so we have to remember the last direction 'N' 'S' 'E' 'W' for manipulating initial direction */
-
 		starting_position = new int[]{0,0,0};
 		commands = new char[]{'f','u','f','l','f'};
 		initial_direction = 'N';
@@ -164,9 +151,6 @@ class Chandrayaan3ApplicationTests {
 		commands = new char[]{'f','r','f'};
 		initial_direction = 'W';
 		assertThat(chandrayaan3Application.final_position(starting_position,commands,initial_direction)).isEqualTo(new int[] {-1,1,0});
-
-		/* here in 'U' and 'D' direction we encounter problem of remembering the 'N' 'S' 'E' 'W', because if we give command 'l' from 'U' it should
-		be 'S', so we have to remember the last direction 'N' 'S' 'E' 'W' for manipulating initial direction */
 
 		starting_position = new int[]{0,0,0};
 		commands = new char[]{'f','u','f','r','f'};
