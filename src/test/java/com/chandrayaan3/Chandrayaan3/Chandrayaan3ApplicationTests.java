@@ -29,9 +29,10 @@ class Chandrayaan3ApplicationTests {
 	public void checks_forward_command_in_all_directions(){
 		chandrayaan3Application = new Chandrayaan3Application();
 
-		starting_position = new int[]{0,0,0};
+
 		commands = new char[]{'f'};
 
+		starting_position = new int[]{0,0,0};
 		initial_direction = 'N';
 		assertThat(chandrayaan3Application.final_position(starting_position,commands,initial_direction)).isEqualTo(new int[]{0,1,0});
 
